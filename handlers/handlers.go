@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"net/http"
-) 
+)
 
 func SetupRoutes() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
@@ -34,12 +34,17 @@ func SetupRoutes() {
 	http.HandleFunc("/password_change", ServePasswordChangePage)
 	http.HandleFunc("/userprofile", UserProfileHandler)
 	http.HandleFunc("/auth/google/login", handleGoogleLogin)
+	http.HandleFunc("/auth/google/register", handleGoogleRegister)
 	http.HandleFunc("/auth/google/callback", handleGoogleCallback)
-	http.HandleFunc("/auth/github", handleGitHubLogin)
+	http.HandleFunc("/auth/github/", handleGitHubLogin)
+	http.HandleFunc("/auth/github/register", handleGitHubRegister)
 	http.HandleFunc("/auth/github/callback", handleGitHubCallback)
 	http.HandleFunc("/auth/facebook", handleFacebookLogin)
-    http.HandleFunc("/auth/facebook/callback", handleFacebookCallback)
+	http.HandleFunc("/auth/facebook/register", handleFacebookRegister)
+	http.HandleFunc("/auth/facebook/callback", handleFacebookCallback)
 	http.HandleFunc("/update_view_count", viewCountHandler)
 	http.HandleFunc("/deletePost", deletePostHandler)
 	http.HandleFunc("/deleteComment", deleteCommentHandler)
+	http.HandleFunc("/auth/confirm-username", handleConfirmUsername)
+
 }

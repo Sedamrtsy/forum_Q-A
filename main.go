@@ -1,18 +1,14 @@
 package main
 
 import (
-	
 	"log"
 	"net/http"
 
-	
 	_ "github.com/mattn/go-sqlite3" // SQLite3 driver
 
 	"forum/handlers"
 	"forum/utils"
 )
-
-
 
 func main() {
 	utils.InitDatabase()   // Initialize the global database connection
@@ -26,4 +22,3 @@ func main() {
 		log.Fatal("Error starting server: ", err)
 	}
 }
-

@@ -255,9 +255,8 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Error scanning post", http.StatusInternalServerError)
 			return
 		}
-		post.Category = categories
 		post.FormattedCreatedAt = utils.ConvertToIstanbulTime(post.CreatedAt).Format("2006-01-02 15:04:05")
-
+		post.Category = categories
 		posts = append(posts, post)
 	}
 

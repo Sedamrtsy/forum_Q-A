@@ -30,7 +30,7 @@ func CreateTables() {
 		session_token TEXT,
 		token_expires DATETIME
     );`
-	_, err := Db.Exec(createUsersTable)
+	_, err := Db.Exec(createUsersTable) //sorguyu veritabanında çalıştırır . işlem sonucu ve bir hata mesajı 
 	if err != nil {
 		log.Fatalf("Error creating users table: %v", err)
 	}
